@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+
+{% block title %}Home page{% endblock %}
+
+{% block body %}
+<div class="container my-3 " style="margin-right: -70px;">
+    <h2 class="">Welcome to UberRides Prediction</h2>
+
+
+
+
+    <div class="card" style="width: 30rem;">
+        <div class="card-body">
+            <form action="{{url_for('predict')}}" method="post">
+                <!-- Email input -->
+                <div class="form-outline mb-4">
+                    <label class="form-label" for="Priceperweek">Enter Priceperweek</label>
+                    <input type="text" id="Priceperweek" name="Priceperweek" class="form-control" required />
+                </div>
+
+                <div class="form-outline mb-4">
+                    <label class="form-label" for="Population">Enter Population</label>
+                    <input type="text" id="Population" name="Population" class="form-control" required />
+                </div>
+
+                <div class="form-outline mb-4">
+                    <label class="form-label" for="Monthlyincome">Enter Monthlyincome</label>
+                    <input type="text" id="Monthlyincome" name="Monthlyincome" class="form-control" required/>
+                </div>
+
+                <div class="form-outline mb-4">
+                    <label class="form-label" for="Averageparkingpermonth">Enter Averageparkingpermonth</label>
+                    <input type="text" id="Averageparkingpermonth" name="Averageparkingpermonth" class="form-control" required/>
+                </div>
+
+                <!-- Submit button -->
+                <button type="submit" class="btn btn-success btn-block">Prediction</button>
+
+                <hr>
+                {{ prediction_text }}
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
